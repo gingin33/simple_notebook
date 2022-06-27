@@ -18,4 +18,6 @@ Route::get('/', 'App\Http\Controllers\SimpleNoteController@index');
 Route::get('login', 'App\Http\Controllers\SimpleNoteController@login');
 
 Route::get('register', 'App\Http\Controllers\SimpleNoteController@register');
-Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_check');
+Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_confirm');
+
+Route::post('register/complete', 'App\Http\Controllers\SimpleNoteController@regist_complete');

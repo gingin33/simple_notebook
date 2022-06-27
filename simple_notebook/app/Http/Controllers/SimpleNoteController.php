@@ -21,8 +21,16 @@ class SimpleNoteController extends Controller
     public function register(){
         return view('top.register');
     }
-    public function regist_check(SimpleNoteRequest $request){
-        return view('top.registerCheck');
+    public function regist_confirm(SimpleNoteRequest $request){
+        $data = [
+            'user'=>$request->user,
+            'pass'=>str_repeat("*", mb_strlen($request->pass, "UTF8")),
+        ];
+
+        return view('top.registerConfirm', $data);
+    }
+    public function regist_complete(Request $request){
+        return view('top.registerComplete');
     }
 
 }

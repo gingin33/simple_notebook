@@ -17,7 +17,6 @@
         </div>
         <div class="notes">
             <p>aaaa</p>
-            <p>eeee</p>
         </div>
     </div>
 @endsection

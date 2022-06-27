@@ -1,7 +1,7 @@
 # かんたん備忘録
 
 ## データベースのユーザ設定からテーブル作成まで
-まず, MariaDBをroot権限でログインする. 次に`/mysql/mysqlEnv.sql`をsourceコマンドで実行すると, 
+まず, MariaDBにroot権限でログインする. 次に`/mysql/mysqlEnv.sql`をsourceコマンドで実行すると, 
 
 - ユーザ名 : `gingin`
 - パスワード : `Pass2438`
@@ -33,4 +33,5 @@ simpleNoteBookディレクトリに移動して
 ```
 $ php artisan serve
 ```
+を実行することでローカルサーバが起動されるので, `localhost:8000`にアクセスすることでかんたん備忘録の閲覧が可能となる.
 
