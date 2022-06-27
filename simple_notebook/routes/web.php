@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\SimpleNoteController@index');
+
+Route::get('login', 'App\Http\Controllers\SimpleNoteController@login');
+
+Route::get('register', 'App\Http\Controllers\SimpleNoteController@register');
+Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_check');

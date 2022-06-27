@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+}
+.sideBar{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    line-height: 30px;
+}
+.notes{
+    padding: 10px;
+}
+
+.forms{
+    text-align: center;
+}
+
+th{
+    font-weight: bold;
+}
+.err{
+    color: red;
+}
