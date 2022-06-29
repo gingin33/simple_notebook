@@ -12,7 +12,7 @@
     <div class="err">入力されたメールアドレスは存在しません.</div>
     @elseif (isset($notPassMatch))
     <div class="err">パスワードが違います.</div>
-    @endif
+    @endif  
     <form action="/" method="post">
         <table class="forms">
             @csrf

@@ -27,7 +27,8 @@ class UserController extends Controller
             return view('top.login', ['isLoginError'=>true]);
         }
         if(Hash::check($request->pass, $user[0]->password)){
-            $request->session()->put(['login_mail'=>$user[0]->email]);
+            session()->flash('login_mail', $user[0]->email);
+            session()->flash('login_user', $user[0]->user_name);
             return view('top.index');
         }else{
             return view('top.login', ['notPassMatch'=>true]);

@@ -13,8 +13,7 @@ class SimpleNoteController extends Controller
     //
     public function index(){
         $isLogged = false;
-        $data = ['isLogged'=>$isLogged];
-        return view('top.index', $data);
+        return view('top.index', ['isLogged'=>$isLogged]);
     }
     public function login(){
         return view('top.login');
@@ -32,6 +31,10 @@ class SimpleNoteController extends Controller
 
         return view('top.registerConfirm', $data);
     }
-    
+    public function logout(Request $request){
+        $request->session()->forget('login_mail');
+        $request->session()->forget('login_user');
+        return view('top.index');
+    }
 
 }

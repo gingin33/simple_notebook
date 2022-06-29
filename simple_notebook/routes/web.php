@@ -22,3 +22,5 @@ Route::get('register', 'App\Http\Controllers\SimpleNoteController@register');
 Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_confirm');
 
 Route::post('register/complete', 'App\Http\Controllers\UserController@regist_complete');
+
+Route::get('/logout', 'App\Http\Controllers\SimpleNoteController@logout');
