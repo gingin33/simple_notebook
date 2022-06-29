@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\SimpleNoteRequest;
 use App\Models\User;
 
 
@@ -23,8 +22,15 @@ class UserController extends Controller
         return view('top.registerComplete');
     }
     public function login_check(Request $request){
-        foreach(User::all() as $user){
-            echo $user;
+        $user = User::where('email', $request->mail)->get();
+        if(count($user) === 0){
+            return view('top.login', ['isLoginError'=>true]);
+        }
+        if(Hash::check($request->pass, $user[0]->password)){
+            $request->session()->put(['login_mail'=>$user[0]->email]);
+            return view('top.index');
+        }else{
+            return view('top.login', ['notPassMatch'=>true]);
         }
     }
 }

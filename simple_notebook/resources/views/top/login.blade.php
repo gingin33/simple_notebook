@@ -8,6 +8,11 @@
     <div class="regist">
         <a href="/register">新規登録</a>
     </div>
+    @if (isset($isLoginError))
+    <div class="err">入力されたメールアドレスは存在しません.</div>
+    @elseif (isset($notPassMatch))
+    <div class="err">パスワードが違います.</div>
+    @endif
     <form action="/" method="post">
         <table class="forms">
             @csrf
