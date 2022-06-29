@@ -29,17 +29,20 @@ class SimpleNoteRequest extends FormRequest
     {
         return [
             'user' => 'required',
+            'mail' => 'unique:"users","email"|email',
             'pass' => 'min:8',
-            'passCheck' => 'min:8 | same:pass',
+            'passCheck' => 'min:8|same:pass',
         ];
     }
 
     public function messages(){
         return [
             'user.required' => '名前は必ず入力してください.',
+            'mail.email' => 'メールアドレスを入力してください.',
+            'mail.unique' => 'このメールアドレスは既に登録されています.',
             'pass.min' => 'パスワードは8文字以上にしてください.',
             'passCheck.min' => 'パスワードは8文字以上にしてください.',
-            'passCheck.same' => 'パスワードは一致させてください.'
+            'passCheck.same' => 'パスワードが一致しません.'
         ];
     }
 }

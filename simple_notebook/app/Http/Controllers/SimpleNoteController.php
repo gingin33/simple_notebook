@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\SimpleNoteRequest;
+use App\Models\User;
 use Validator;
 
 class SimpleNoteController extends Controller
@@ -24,13 +25,13 @@ class SimpleNoteController extends Controller
     public function regist_confirm(SimpleNoteRequest $request){
         $data = [
             'user'=>$request->user,
-            'pass'=>str_repeat("*", mb_strlen($request->pass, "UTF8")),
+            'mail'=>$request->mail,
+            'pass'=>$request->pass,
         ];
+        $request->session()->put(['user_name'=>$request->user, 'mail'=>$request->mail, 'password'=>$request->pass]);
 
         return view('top.registerConfirm', $data);
     }
-    public function regist_complete(Request $request){
-        return view('top.registerComplete');
-    }
+    
 
 }

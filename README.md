@@ -1,12 +1,12 @@
 # かんたん備忘録
 
-## データベースのユーザ設定からテーブル作成まで
+## データベースのユーザ設定
 まず, MariaDBにroot権限でログインする. 次に`/mysql/mysqlEnv.sql`をsourceコマンドで実行すると, 
 
 - ユーザ名 : `gingin`
 - パスワード : `Pass2438`
 
-のユーザが作られ, 権限の付与と必要なテーブルの生成が完了する.
+のユーザが作られ, 権限の付与が完了する.
 rootからログアウトして上記のユーザでログインすると生成したテーブルの操作が可能となる.´´
 
 ## Laravelの環境設定
@@ -28,8 +28,15 @@ $ source ~/.bash_profile
 ```
 これでLaravelのインストールは完了となる.
 
-## Laravelの実行方法
-simpleNoteBookディレクトリに移動して
+## Migrationによるテーブルの生成
+simple_noteBookディレクトリに移動して
+```
+$ php artisan migrate
+```
+を実行することで事前に用意してあるマイグレーションファイルから必要なテーブルが生成される. 
+
+## Laravelローカルサーバの起動方法
+simple_noteBookディレクトリのまま,
 ```
 $ php artisan serve
 ```

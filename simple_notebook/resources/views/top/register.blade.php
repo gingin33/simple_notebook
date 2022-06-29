@@ -18,6 +18,13 @@
             @endif
             <tr><th>ユーザID : </th><td><input type="text" name="user" value="{{ old('user') }}"></td></tr>
 
+            @if ($errors->has('mail'))
+            @error('mail')
+            <tr class="err"><th></th><td>{{ $message }}</td></tr>
+            @enderror
+            @endif
+            <tr><th>メールアドレス : </th><td><input type="text" name="mail" value="{{ old('mail') }}"></td></tr>
+
             @if ($errors->has('pass'))
             @error('pass')
             <tr class="err"><th></th><td>{{ $message }}</td></tr>

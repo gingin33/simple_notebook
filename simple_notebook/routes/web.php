@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\SimpleNoteController@index');
+Route::post('/', 'App\Http\Controllers\UserController@login_check');
 
 Route::get('login', 'App\Http\Controllers\SimpleNoteController@login');
 
 Route::get('register', 'App\Http\Controllers\SimpleNoteController@register');
 Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_confirm');
 
-Route::post('register/complete', 'App\Http\Controllers\SimpleNoteController@regist_complete');
+Route::post('register/complete', 'App\Http\Controllers\UserController@regist_complete');

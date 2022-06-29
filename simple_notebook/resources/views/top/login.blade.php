@@ -11,7 +11,7 @@
     <form action="/" method="post">
         <table class="forms">
             @csrf
-            <tr><th>ユーザID : </th><td><input type="text" name="name"></td></tr>
+            <tr><th>メールアドレス : </th><td><input type="text" name="mail"></td></tr>
             <tr><th>パスワード : </th><td><input type="password" name="pass"></td></tr>
             <tr><th></th><td><input type="submit" value="ログイン"></td></tr>
         </table>
