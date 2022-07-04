@@ -18,6 +18,14 @@ class NoteTableSeeder extends Seeder
         $param = [
             'subject'=>'TestText',
             'text'=>'testtesttesttest',
+            'user_id'=>1,
+            'is_private'=>'0',
+        ];
+        DB::table('notebooks')->insert($param);
+        $param = [
+            'subject'=>'aaaa',
+            'text'=>'fefaefa',
+            'user_id'=>1,
             'is_private'=>'0',
         ];
         DB::table('notebooks')->insert($param);

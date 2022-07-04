@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Models\Notebook;
 use Validator;
 
 class SimpleNoteController extends Controller
 {
     //
     public function index(){
-        $isLogged = false;
-        return view('top.index', ['isLogged'=>$isLogged]);
+        return view('top.index');
     }
     public function login(){
         return view('top.login');
@@ -32,9 +32,10 @@ class SimpleNoteController extends Controller
         return view('top.registerConfirm', $data);
     }
     public function logout(Request $request){
-        $request->session()->forget('login_mail');
+        $notes = Notebook::orderBy('id', 'desc')->get();
+        $request->session()->forget('login_id');
         $request->session()->forget('login_user');
-        return view('top.index');
+        return view('top.index', ['notes' => $notes]);
     }
 
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent()->nullable(false);
             $table->string('subject', 100);
             $table->string('text', 500);
+            $table->integer('user_id')->nullable();
             $table->boolean('is_private');
         });
     }

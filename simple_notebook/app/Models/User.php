@@ -13,6 +13,9 @@ class User extends Model
 
     public $timestamps = false;
 
+    public function note(){
+        return $this->hasMany('App\Models\Note');
+    }
     public static $rules = array(
         'mail' => 'email',
         'password' => 'min:8',

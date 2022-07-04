@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\SimpleNoteController@index');
+Route::get('/', 'App\Http\Controllers\NoteController@index');
 Route::post('/', 'App\Http\Controllers\UserController@login_check');
 
 Route::get('login', 'App\Http\Controllers\SimpleNoteController@login');
@@ -23,4 +23,10 @@ Route::post('register', 'App\Http\Controllers\SimpleNoteController@regist_confir
 
 Route::post('register/complete', 'App\Http\Controllers\UserController@regist_complete');
 
-Route::get('/logout', 'App\Http\Controllers\SimpleNoteController@logout');
+Route::get('logout', 'App\Http\Controllers\SimpleNoteController@logout');
+
+Route::post('upload', 'App\Http\Controllers\NoteController@upload');
+Route::post('upload/complete', 'App\Http\Controllers\NoteController@upload_complete');
+
+Route::get('edit', 'App\Http\Controllers\UserController@edit');
+Route::post('edit', 'App\Http\Controllers\UserController@edit_confirm');
