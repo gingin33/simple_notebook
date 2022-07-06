@@ -3,12 +3,39 @@
 }
 .sideBar{
     display: flex;
-    padding: 10px;
+    padding: 0.1em;
     flex-direction: column;
-    line-height: 30px;
+    line-height: 1.8rem;
 }
 .notes{
-    padding: 10px;
+    padding-left: 2.0rem;
+}
+.inputForm{
+    padding: 1.0rem;
+}
+.regist{
+    padding-left: 0rem;
+}
+
+.box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+}
+
+.header{
+    color: gray;
+    background-color:ghostwhite;
+    margin-bottom: 0.7rem;
+    padding: 1.0rem;
+}
+
+.pageTitle{
+    padding: 1.0rem;
+}
+
+h3{
+    padding:0.5rem;
 }
 
 .forms{

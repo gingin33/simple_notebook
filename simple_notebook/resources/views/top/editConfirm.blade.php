@@ -7,6 +7,7 @@
 @section('contents')
     <p>以下の内容でよろしいでしょうか？</p>
     <form action="/edit/complete" method="post">
+        @csrf
         <table class="forms">
             <tr><th>ユーザID : </th><td>{{ $user }}</td></tr>
             <tr><th>メールアドレス : </th><td>{{ $mail }}</td></tr>

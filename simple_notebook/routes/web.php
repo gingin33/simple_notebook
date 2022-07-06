@@ -30,3 +30,7 @@ Route::post('upload/complete', 'App\Http\Controllers\NoteController@upload_compl
 
 Route::get('edit', 'App\Http\Controllers\UserController@edit');
 Route::post('edit', 'App\Http\Controllers\UserController@edit_confirm');
+
+Route::post('edit/complete', 'App\Http\Controllers\UserController@edit_complete');
+
+Route::get('mypage', 'App\Http\Controllers\NoteController@mypage');

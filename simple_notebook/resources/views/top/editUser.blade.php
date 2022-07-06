@@ -5,10 +5,11 @@
 @section('pageTitle', '登録情報変更')
 
 @section('contents')
+<div class="inputForm">
 @if (count($errors) > 0)
     <p class="err">入力に問題があります。</p>
     @endif
-    <form action="/editConfirm" method="post">
+    <form action="/edit" method="post">
         <table class="forms">
             @csrf
             @if ($errors->has('user'))
@@ -42,4 +43,5 @@
         </table>
     </form>
     <a href="/">トップへ</a>
+</div>
 @endsection

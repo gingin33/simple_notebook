@@ -27,12 +27,14 @@ class SimpleNoteController extends Controller
             'mail'=>$request->mail,
             'pass'=>$request->pass,
         ];
-        $request->session()->put(['user_name'=>$request->user, 'mail'=>$request->mail, 'password'=>$request->pass]);
+        session()->flash('user_name', $request->user);
+        session()->flash('mail', $request->mail);
+        session()->flash('password', $request->pass);
 
         return view('top.registerConfirm', $data);
     }
     public function logout(Request $request){
-        $notes = Notebook::orderBy('id', 'desc')->get();
+        $notes = Notebook::orderBy('id', 'desc')->paginate(10);
         $request->session()->forget('login_id');
         $request->session()->forget('login_user');
         return view('top.index', ['notes' => $notes]);

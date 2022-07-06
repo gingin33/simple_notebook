@@ -29,9 +29,9 @@ class EditRequest extends FormRequest
     {
         return [
             'user' => 'required',
-            'mail' => 'unique:"users","email"|email',
-            'pass' => 'min:8',
-            'passCheck' => 'min:8|same:pass',
+            'mail' => 'required | email',
+            'pass' => 'required | min:8',
+            'passCheck' => 'min:8 | same:pass',
         ];
     }
     public function messages(){

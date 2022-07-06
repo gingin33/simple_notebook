@@ -9,7 +9,7 @@ use App\Models\Notebook;
 class NoteController extends Controller
 {
     public function index(Request $request){
-        $notes = Notebook::orderBy('id', 'desc')->get();
+        $notes = Notebook::orderBy('id', 'desc')->paginate(10);
         return view('top.index', ['notes' => $notes]);
     }
     public function upload(UploadRequest $request){
@@ -42,5 +42,9 @@ class NoteController extends Controller
         ]);
         $note->save();
         return view('top.uploadComplete');
+    }
+    public function mypage(Request $request){
+        $notes = Notebook::where('user_id', $request->session()->get('login_id'))->orderBy('id', 'desc')->paginate(10);
+        return view('top.mypage', ['notes' => $notes]);
     }
 }
