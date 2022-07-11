@@ -5,7 +5,7 @@
 @section('pageTitle', '新規登録')
 
 @section('contents')
-    <div class="inputForm">
+    <div class="contentForms">
         @if (count($errors) > 0)
         <p class="err">入力に問題があります。</p>
         @endif

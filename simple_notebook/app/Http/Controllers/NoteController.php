@@ -41,7 +41,7 @@ class NoteController extends Controller
             'is_private'=>$iP,
         ]);
         $note->save();
-        return view('top.uploadComplete');
+        return redirect('/');
     }
     public function mypage(Request $request){
         $notes = Notebook::where('user_id', $request->session()->get('login_id'))->orderBy('id', 'desc')->paginate(10);

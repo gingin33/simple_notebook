@@ -16,17 +16,34 @@ class NoteTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'subject'=>'TestText',
-            'text'=>'testtesttesttest',
+            'subject'=>'パスタの作り方',
+            'text'=>'材料：麺',
             'user_id'=>1,
             'is_private'=>'0',
         ];
         DB::table('notebooks')->insert($param);
+
         $param = [
-            'subject'=>'aaaa',
-            'text'=>'fefaefa',
-            'user_id'=>1,
+            'subject'=>'こんにちは',
+            'text'=>'ハロー',
+            'user_id'=>2,
             'is_private'=>'0',
+        ];
+        DB::table('notebooks')->insert($param);
+
+        $param = [
+            'subject'=>'今日の出来事',
+            'text'=>'・トイレに行った',
+            'user_id'=>2,
+            'is_private'=>'0',
+        ];
+        DB::table('notebooks')->insert($param);
+
+        $param = [
+            'subject'=>'予定',
+            'text'=>'東京ドームシティに行く',
+            'user_id'=>2,
+            'is_private'=>'1',
         ];
         DB::table('notebooks')->insert($param);
     }

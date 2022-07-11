@@ -1,50 +1,118 @@
-.container{
+body{
     display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+.contain{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    float: right;
 }
 .sideBar{
+    padding: 0rem;
+}
+.sideBarContent{
     display: flex;
-    padding: 0.1em;
+    position: sticky;
+    padding: 2.0rem;
+    margin-left: 1.0rem;
+    top: 3%;
     flex-direction: column;
     line-height: 1.8rem;
+    background-color: aliceblue;
 }
 .notes{
     padding-left: 2.0rem;
+    margin: auto;
 }
-.inputForm{
+.note{
+    border: solid 0.2rem #eeeeee;
+    margin: 0.5rem;
+}
+.contentForms{
     padding: 1.0rem;
 }
 .regist{
     padding-left: 0rem;
 }
 
-.box5 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    border: double 5px #4ec4d3;
-}
-
 .header{
     color: gray;
     background-color:ghostwhite;
-    margin-bottom: 0.7rem;
     padding: 1.0rem;
 }
 
 .pageTitle{
     padding: 1.0rem;
+    margin-left: 1.0rem;
+    margin-right: 1.0rem;
+    color: gray;
+    background-color:ghostwhite;
 }
 
-h3{
-    padding:0.5rem;
+h3 {
+    padding: 0.5rem;
+    border: solid 0.1rem #eeeeee;
+}
+h2 {
+    padding: 0.5rem;
+}
+.noteText{
+    text-align: justify;
+    text-justify: auto;
+    padding: 0.5rem;
+    padding-top: 0rem;
+}
+.userName{
+    color:rgb(187, 187, 187);
+    font-size: 0.7rem;
+    padding: 0.5rem;
+}
+.createdAt{
+    color:rgb(187, 187, 187);
+    font-size: 0.7rem;
+    padding: 0.5rem;
+}
+.noteInfo{
+    display: flex;
 }
 
 .forms{
     text-align: center;
 }
 
+.pager{
+    text-align: center;
+    padding: 1.0rem;
+}
+
+.uploadColumn{
+}
+
 th{
     font-weight: bold;
+    padding: 0.5rem;
 }
 .err{
     color: red;
+}
+
+.footer{
+    padding: 2.0rem;
+    margin-top: 1.0rem;
+    color: gray;
+    background-color:ghostwhite;
+    text-align: center;
+}
+.footer ul{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.footer li{
+    margin: 0 12px;
+    list-style: none;
 }

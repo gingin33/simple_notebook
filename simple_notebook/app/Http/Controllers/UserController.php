@@ -21,7 +21,7 @@ class UserController extends Controller
             'password'=>Hash::make($request->session()->get('password'))
         ]);
         $user->save();
-        return view('top.registerComplete');
+        return redirect('/login');
     }
     public function login_check(Request $request){
         $notes = Notebook::orderBy('id', 'desc')->paginate(10);
@@ -33,7 +33,7 @@ class UserController extends Controller
             session(['login_id'=>$user[0]->id, 'login_user'=>$user[0]->user_name]);
             return view('top.index', ['notes' => $notes]);
         }else{
-            return view('top.login', ['notPassMatch'=>true]);
+            return view('top.login', ['isLoginError'=>true]);
         }
     }
     public function edit(Request $request){
@@ -64,6 +64,6 @@ class UserController extends Controller
         $user->save();
 
         session(['login_user'=>$request->session()->get('user_name')]);
-        return view('top.editComplete');
+        return redirect('/');
     }
 }

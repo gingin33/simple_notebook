@@ -2,9 +2,11 @@
 
 @section('title', 'かんたん備忘録')
 
-@section('pageTitle', '登録完了')
+@section('pageTitle', '新規登録完了')
 
 @section('contents')
-    <h3>登録完了しました。</h3>
-    <a href="/login">ログインへ</a>
+    <div class="contentForms">
+        <h2>新規登録完了しました。</h2>
+        <a href="/login">ログインへ</a>
+    </div>
 @endsection
