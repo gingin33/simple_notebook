@@ -7,6 +7,6 @@
 @section('contents')
     <div class="contentForms">
         <h2>登録内容の変更が完了しました。</h2>
-        <a href="/">トップへ</a>
+        <a href="/" class="back">トップへ</a>
     </div>
 @endsection

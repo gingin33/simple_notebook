@@ -17,9 +17,9 @@
                 @csrf
                 <tr><th>メールアドレス : </th><td><input type="text" name="mail"></td></tr>
                 <tr><th>パスワード : </th><td><input type="password" name="pass"></td></tr>
-                <tr><th></th><td><input type="submit" value="ログイン"></td></tr>
+                <tr><th></th><td><input type="submit" value="ログイン" class="submit"></td></tr>
             </table>
         </form>
-        <a href="/">トップへ</a>
+        <div class="back"><a href="/" class="back">トップへ</a></div>
     </div>
 @endsection

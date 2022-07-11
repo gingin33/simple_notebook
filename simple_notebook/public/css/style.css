@@ -18,14 +18,15 @@ body{
     position: sticky;
     padding: 2.0rem;
     margin-left: 1.0rem;
+    margin-top: 0.5rem;
     top: 3%;
     flex-direction: column;
     line-height: 1.8rem;
     background-color: aliceblue;
 }
 .notes{
-    padding-left: 2.0rem;
-    margin: auto;
+    padding: 2.0rem;
+    width: 100%;
 }
 .note{
     border: solid 0.2rem #eeeeee;
@@ -33,9 +34,14 @@ body{
 }
 .contentForms{
     padding: 1.0rem;
+    margin: auto;
 }
 .regist{
-    padding-left: 0rem;
+    padding-bottom: 2.0rem;
+}
+.back{
+    padding-top: 2.0rem; 
+    margin-top: 2.0rem;
 }
 
 .header{
@@ -55,6 +61,7 @@ body{
 h3 {
     padding: 0.5rem;
     border: solid 0.1rem #eeeeee;
+    background-color: aliceblue;
 }
 h2 {
     padding: 0.5rem;
@@ -88,7 +95,22 @@ h2 {
     padding: 1.0rem;
 }
 
-.uploadColumn{
+.submit{
+    display       : inline-block;
+    border-radius : 8%;         
+    font-size     : 1.0rem;        
+    text-align    : center;      
+    cursor        : pointer;     
+    padding       : 12px 12px;   
+    color    : #1e6cfe;     
+    background-color         : #ffffff;     
+    line-height   : 1em;         
+    transition    : .1s;         
+    border        : 1px solid #1e6cfe;    
+}
+.submit:hover {
+    background-color         : #1e6cfe;     
+    color    : #ffffff;     
 }
 
 th{

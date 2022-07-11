@@ -31,7 +31,7 @@ class SimpleNoteController extends Controller
         session()->flash('mail', $request->mail);
         session()->flash('password', $request->pass);
 
-        return view('top.registerComplete', $data);
+        return view('top.registerConfirm', $data);
     }
     public function logout(Request $request){
         $notes = Notebook::orderBy('id', 'desc')->paginate(10);

@@ -7,6 +7,6 @@
 @section('contents')
     <div class="contentForms">
         <h2>新規登録完了しました。</h2>
-        <a href="/login">ログインへ</a>
+        <a href="/login" class="back">ログインへ</a>
     </div>
 @endsection

@@ -39,7 +39,7 @@
             @enderror
             @endif
             <tr><th>パスワード確認 : </th><td><input type="password" name="passCheck" value=""></td></tr>
-            <tr><th></th><td><input type="submit" value="登録"></td></tr>
+            <tr><th></th><td><input type="submit" value="登録" class="submit"></td></tr>
         </table>
     </form>
     <a href="/">トップへ</a>

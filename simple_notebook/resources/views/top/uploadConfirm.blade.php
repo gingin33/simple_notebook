@@ -18,7 +18,7 @@
                     @else
                         NO
                     @endif
-                <tr><th><input type="submit" value="OK"></th><td><input type="button" value="戻る" onclick="history.back()"></td></tr>
+                <tr><th><input type="submit" value="OK" class="submit"></th><td><input type="button" value="戻る" onclick="history.back()" class="submit"></td></tr>
             </table>
         </form>
     </div>

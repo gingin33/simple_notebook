@@ -39,9 +39,9 @@
                 @enderror
                 @endif
                 <tr><th>パスワード確認 : </th><td><input type="password" name="passCheck" value="{{ old('passCheck') }}"></td></tr>
-                <tr><th></th><td><input type="submit" value="登録"></td></tr>
+                <tr><th></th><td><input type="submit" value="登録" class="submit"></td></tr>
             </table>
         </form>
-        <a href="/login">ログインへ</a>
+        <div class="back"> <a href="/login">ログインへ</a></div>
     </div>
 @endsection

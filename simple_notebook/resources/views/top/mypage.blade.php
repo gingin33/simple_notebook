@@ -15,6 +15,34 @@
                 @else
                     <a href="/login">ログイン</a>
                 @endif
+                <form action="/upload" method="post"> 
+                    @csrf
+                    <table class="uploadForm">
+                        @if (session('login_id'))
+                            <tr><th class="uploadColumn">Name</th><td>{{ session('login_user') }}</td></tr>
+                        @else  
+                            <tr><th>Name</th><td>名無し</td></tr>
+                        @endif
+
+                        @if ($errors->has('title'))
+                        @error('title')
+                        <tr class="err"><th></th><td>{{ $message }}</td></tr>
+                        @enderror
+                        @endif
+                        <tr><th class="uploadColumn">Title</th><td><input type="text" name="title" value="{{ old('title') }}"></input></td></tr>
+
+                        @if ($errors->has('texts'))
+                        @error('texts')
+                        <tr class="err"><th></th><td>{{ $message }}</td></tr>
+                        @enderror
+                        @endif
+                        <tr><th class="uploadColumn"></th><td><textarea cols=30 rows=5 name="texts" value="{{ old('texts') }}"></textarea></td></tr>
+                        @if (session('login_id'))
+                            <tr><th class="uploadColumn">Private</th><td><input type="checkbox" name="isPrivate[]"></td></tr>
+                        @endif
+                        <tr><th></th><td><input type="submit" class="submit"></input></td></tr>
+                    </table>
+            </form> 
             </div>
         </div>
         <div class="notes">
@@ -58,7 +86,7 @@
                         @endif
                         <tr><th class="uploadColumn"></th><td><textarea cols=50 rows=10 name="texts"></textarea></td></tr>
                         <tr><th class="uploadColumn">プライベート投稿にする</th><td><input type="checkbox" name="isPrivate[]"></td></tr>
-                        <tr><th></th><td><input type="submit"></input></td></tr>
+                        <tr><th></th><td><input type="submit" class="submit"></input></td></tr>
                     </table>
             </form> 
         </div>
