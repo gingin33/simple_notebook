@@ -34,7 +34,7 @@ class SimpleNoteController extends Controller
         return view('top.registerConfirm', $data);
     }
     public function logout(Request $request){
-        $notes = Notebook::orderBy('id', 'desc')->paginate(10);
+        $notes = Notebook::orderBy('id', 'desc')->paginate(15);
         $request->session()->forget('login_id');
         $request->session()->forget('login_user');
         return view('top.index', ['notes' => $notes]);

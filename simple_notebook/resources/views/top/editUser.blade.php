@@ -17,7 +17,7 @@
             <tr class="err"><th></th><td>{{ $message }}</td></tr>
             @enderror
             @endif
-            <tr><th>ユーザID : </th><td><input type="text" name="user" value="{{ $user->user_name }}"></td></tr>
+            <tr><th>ユーザネーム : </th><td><input type="text" name="user" value="{{ $user->user_name }}"></td></tr>
 
             @if ($errors->has('mail'))
             @error('mail')

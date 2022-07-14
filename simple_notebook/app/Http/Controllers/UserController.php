@@ -24,7 +24,7 @@ class UserController extends Controller
         return redirect('/login');
     }
     public function login_check(Request $request){
-        $notes = Notebook::orderBy('id', 'desc')->paginate(10);
+        $notes = Notebook::orderBy('id', 'desc')->paginate(15);
         $user = User::where('email', $request->mail)->get();
         if(count($user) === 0){
             return view('top.login', ['isLoginError'=>true]);

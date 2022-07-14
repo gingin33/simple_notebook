@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.6.1)  11 JUL 2022 15:41
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.6.1)  12 JUL 2022 10:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -4204,9 +4204,9 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <11.82813> not available
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <11.82813> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9.61035> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 62.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 54.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9.61035> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 62.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 54.
  (I search kanjifont definition file: . . ) (I search font definition file: .
 . . . . . . )
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
@@ -4230,118 +4230,118 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 ] [2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 164.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 164.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 156.
 
 [3] [4]
-LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 326.
+LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 318.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 []\OT1/cmr/m/n/8.8711 PHP Group . "\JY1/mc/m/n/8.8711 一般的な情報\OT1/cmr/m/n/
 8.8711 " . php.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 \OT1/cmr/m/n/8.8711 https://www.php.net/manual/ja/faq.general.php .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 []\OT1/cmr/m/n/8.8711 PHP Group . "Zend API: PHP
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 \JY1/mc/m/n/8.8711 のコアをハ ックする\OT1/cmr/m/n/8.8711 " . php .
  []
 
 
-Overfull \hbox (43.73837pt too wide) in paragraph at lines 328--329
+Overfull \hbox (43.73837pt too wide) in paragraph at lines 320--321
 \OT1/cmr/m/n/8.8711 http://php.adamharvey.name/manual/ja/internals2.ze1.zendapi
 .php
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 \OT1/cmr/m/n/8.8711 https://www.phptutorial.net/php-tutorial/what-is-php/
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 330--331
+Underfull \hbox (badness 5726) in paragraph at lines 322--323
 []\OT1/cmr/m/n/8.8711 KINSTA . "MySQL \JY1/mc/m/n/8.8711 とは ？初心者にわかり
 や
  []
 
 
-Underfull \hbox (badness 6708) in paragraph at lines 330--331
+Underfull \hbox (badness 6708) in paragraph at lines 322--323
 \JY1/mc/m/n/8.8711 すい説明\OT1/cmr/m/n/8.8711 " . KIN-STA . (\JY1/mc/m/n/8.871
 1 更新日\OT1/cmr/m/n/8.8711 :2020/07/03) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 322--323
 \OT1/cmr/m/n/8.8711 https://kinsta.com/jp/knowledgebase/what-is-mysql/ .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 []\OT1/cmr/m/n/8.8711 Mark Small-combe . "Mari-aDB vs MySQL: \JY1/mc/m/n/8.8711
  徹
  []
 
 
-Underfull \hbox (badness 7851) in paragraph at lines 332--333
+Underfull \hbox (badness 7851) in paragraph at lines 324--325
 \JY1/mc/m/n/8.8711 底比較\OT1/cmr/m/n/8.8711 " . in-te-grate.io . (\JY1/mc/m/n/
 8.8711 更新日\OT1/cmr/m/n/8.8711 :2020/09/03) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 \OT1/cmr/m/n/8.8711 https://www.integrate.io/jp/blog/mariadb-vs-mysql-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 []\OT1/cmr/m/n/8.8711 smarty . "Smarty \JY1/mc/m/n/8.8711 とは\OT1/cmr/m/n/8.87
 11 ?" .smarty .
  []
 
 
-Underfull \hbox (badness 7851) in paragraph at lines 334--335
+Underfull \hbox (badness 7851) in paragraph at lines 326--327
 \OT1/cmr/m/n/8.8711 https://www.smarty.net/docsv2/ja/what.is.smarty.tpl .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 []\OT1/cmr/m/n/8.8711 MDN con-trib-u-tors . "HTTP" . mdn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 \OT1/cmr/m/n/8.8711 web docs . (\JY1/mc/m/n/8.8711 更新日\OT1/cmr/m/n/8.8711 :2
 021/09/18) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 \OT1/cmr/m/n/8.8711 https://developer.mozilla.org/ja/docs/Web/HTTP .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 []\OT1/cmr/m/n/8.8711 SiteGround Host-ing Ltd . "Email Pro-to-cols -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 \OT1/cmr/m/n/8.8711 https://www.siteground.com/tutorials/email/protocols-
  []
 
 
-Underfull \hbox (badness 4467) in paragraph at lines 337--338
+Underfull \hbox (badness 4467) in paragraph at lines 329--330
 []\OT1/cmr/m/n/8.8711 SiteGround Host-ing Ltd . "What is SMTP?" .
  []
 
@@ -4356,10 +4356,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2110 strings out of 478752
  33664 string characters out of 5857045
- 360489 words of memory out of 5000000
+ 362489 words of memory out of 5000000
  20522 multiletter control sequences out of 15000+600000
  508816 words of font info for 201 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 55i,11n,62p,463b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,11n,62p,463b,470s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on K20089_report2.dvi (5 pages, 48240 bytes).
+Output written on K20089_report2.dvi (5 pages, 46972 bytes).

@@ -9,7 +9,7 @@
         <p>以下の内容でよろしいでしょうか？</p>
         <form action="/register/complete" method="post">
             <table class="forms">
-                <tr><th>ユーザID : </th><td>{{ $user }}</td></tr>
+                <tr><th>ユーザネーム : </th><td>{{ $user }}</td></tr>
                 <tr><th>メールアドレス : </th><td>{{ $mail }}</td></tr>
                 <tr><th>パスワード : </th><td>@php echo str_repeat("*", mb_strlen($pass, "UTF8")); @endphp</td></tr>
                 

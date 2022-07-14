@@ -37,7 +37,7 @@ class RegisterRequest extends FormRequest
 
     public function messages(){
         return [
-            'user.required' => '名前は必ず入力してください.',
+            'user.required' => 'ユーザネームを入力してください.',
             'mail.email' => 'メールアドレスを入力してください.',
             'mail.unique' => 'このメールアドレスは既に登録されています.',
             'pass.min' => 'パスワードは8文字以上にしてください.',
