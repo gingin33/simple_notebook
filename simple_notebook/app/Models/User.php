@@ -14,7 +14,7 @@ class User extends Model
     public $timestamps = false;
 
     public function note(){
-        return $this->hasMany('App\Models\Note');
+        return $this->hasMany('App\Models\Notebook');
     }
     public static $rules = array(
         'mail' => 'email',

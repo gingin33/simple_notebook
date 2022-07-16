@@ -42,11 +42,12 @@ AICHI INSTITUTE OF TECHNOLOGY University}
 \section{機能概要}
 かんたん備忘録は他の人とノートを共有することができるTODOリストアプリケーションである. 機能としてはシンプルに
 備忘録の投稿, 投稿のプライベート化, 自分が投稿した備忘録のチェックを行うことができる. 投稿フォームはスクロールに追従するサイドバーにあるのでどの位置からでも投稿することができる. 
+投稿フォームのチェックボックスにマークをつけると投稿がプライベート化され, 最新の備忘録からは確認できなくなるが, マイ備忘録からはいつでも確認することができるので見られたくない投稿はチェックをつけて非表示にすることができる. 
 
 そして新規登録の際はユーザネームと重複防止のためのメールアドレス, そしてパスワードを設定することができる. 
 また, これらの項目は必ず入力する必要があり, パスワードは8文字以上, メールアドレスはメールアドレスの形式のみというバリデーションの制限がある. 
 
-登録情報はログイン後サイドバーのリンクから変更することができる. 入力フォームにはユーザデータが取り込まれて表示されるので, 
+登録情報はログイン後サイドバーのリンクから変更することができる. 入力フォームにはユーザデータが取り込まれて表示される.
 
 
 %2
@@ -89,9 +90,17 @@ HTML内で指定されたタグやidなどをセレクタで指定して色や�
 
 %2.4
 %この節における参考文献
+%https://www.tutorialspoint.com/laravel/laravel_overview.htm
 \subsection{Laravel}
+LaravelはMVC方式のPHPフレームワークである. CodeIgniterやYiiなどのPHPフレームワークやRuby on Railsなどのプログラム言語の基本的な機能を組み込んでいるので豊富な機能が使用できることが特徴である. 
+なのでスクラッチ開発でもセキュリティ対策などが簡単に実装できるので容易にWeb開発に取り組むことができる. 
+さらにvue.jsなどの他のフレームワークからコンポーネントを持ってくることも可能なのでよりWebアプリケーションの開発が容易になっている.
 
+またLaravelにはプロジェクトの操作に便利なArtisanコマンドというものが搭載されている. このコマンドはSymphonyというフレームワークを使って作られており, これを使用してデータベースの操作, ローカルサーバの立ち上げ, モデル・ビュー・コントローラの生成が簡単にできるようになっている. 
 
+さらにプログラムからデータベースに楽にアクセスするためにEloquentと呼ばれるORM(Object Relational Mapper)が組み込まれている. これによって関数やモデルクラスの使用でSQLの操作が可能となっている.
+
+またビューではbladeと呼ばれるLaravel独自のテンプレートファイルが使用可能で, これを使用することでphpファイル内で条件に応じた処理や別ファイルの継承などを行って便利に表示をさせることができる. 
 
 %https://developer.mozilla.org/ja/docs/Web/HTTP
 \subsection{HTTP}
@@ -102,168 +111,135 @@ HTTPとは"Hypertext Transfer Protocol"の略でハイパーテキストを転�
 %3
 \section{システム設計}
 \subsection{システム概要}
-Smartyを使って, コントローラでデータベースと表示を操作している. 実際会員ページではMemberController.php, 管理者ページではSystemController.phpを使ってモデルから受け取ったデータベースの情報をビューに送り, 表示させている.  
-中で使用されているコントローラは全てBaseController.phpというベースとなるコントローラを継承しており, BaseControllerのログイン状態やエラー表示の機能に加えて, それぞれのコントローラで使用される機能を追加している. 
+Laravelを使用して3つのコントローラ, 2つのモデル, 11のビューによって構成されている. 
 
-モデルも同様にBaseModel.phpというベースファイルを継承してそれぞれの場面で使用されるモデルクラスを生成している. 
-このクラスではデータベースに接続して様々な操作をする機能を持っており, このプロジェクトでは新規登録時のデータベースへの挿入や退会時のデータベースからの削除, 管理者画面でのデータの検索などをする際にモデルの役目が果たされていると言える. 
+SimpleNoteControllerクラスは主に特にデータベースとの連携などを行わない処理の際に呼び出されるコントローラである. 
+ここではトップページの表示, 新規登録の確認画面の表示, ログアウトなどでセッションの操作を行うことがほとんどである. 
 
-また, ビューで表示するHTML文書は拡張子が.htmlではなく, .tplというテンプレートファイルを使って表示している. これを使えばif構文などが使用できるのでコントローラから受け取った値などをhtmlに便利に表示することができる. 
+次にUserControllerクラスである. ここではユーザデータの操作を行っており, 新規登録の完了, ログイン情報のチェック, 登録情報の編集が機能となっている. またデータベースにユーザデータを挿入する際のパスワードのハッシュ化もここで行っている. 
+
+最後にNoteControllerクラスである. ここでは備忘録の操作を行っている. トップページでの表示の際にidの降順にペジネーションしての表示, 備忘録の投稿, マイページでの表示が主な機能となっている. さらにプライベート投稿であるかのチェックもここで行っており, プライベート投稿であればフラグを立てたものをデータベースに登録している. 
+そして備忘録を表示する際にはビュー側でこのフラグを検知して非表示にするかを判断している. 
+また, これらUserControllerとNoteControllerはバリデーションもここで行っており, それぞれに独自のRequestクラスを実装してリクエストが渡された際にクラスの機能に応じたバリデーションを行うことでユーザ入力のルール違反をチェックしている. 主にパスワードは8文字以上, 投稿文字数は400文字以内などのルール設定がここで行われ, チェックされている.
+
+そしてモデルはUserモデルクラスとNoteモデルクラスがあり, それぞれUserモデルがNoteモデルの主テーブルであることの宣言やデータベース挿入時のバリデーションなどの関数が搭載されている. 
 
 \subsection{画面遷移}
-まず,  会員ページでの状態遷移図は図2のような構成となっている.  ログイン画面からは新規登録画面とログインした場合の会員のトップ画面に飛ぶことができる.　
-新規登録画面ではメールアドレスなど必要な情報を入力してもらい, その次に登録情報の確認に移る. そしてメールの送信が完了し, 登録したメールアドレスに送られた専用メールに書かれたリンクに飛ぶと, 登録完了となり, ログイン画面に戻ることができる. 
-この際にすでに有効期限などが切れ, 無効となったリンクに飛ぼうとするとエラーとなり, 同じくログイン画面に戻ることになる. 
+本システムの画面遷移図は図1のようになっている. まずトップページでは未ログインの状態ではサイドバーは投稿フォームとログインボタン, 既ログインの状態では投稿フォームとマイページ, 登録情報編集, ログアウトへのリンクが設置されている. それ以外はどちらも備忘録の表示のみで同じ構成となっている.
+ログインの際にはメールアドレスとパスワードの入力フォームが設置されている. ここにログイン情報を入力することでログイン状態になることができる. またデータが不十分であったり, 登録データが存在しない場合はエラー表示がされる. 
 
-会員登録が済んでいる場合はログイン画面で会員情報を入力して会員トップ画面に飛ぶことができる. 会員トップ画面では登録情報の変更と退会をすることができ, またトップページからログアウトをすることも可能である. 
-更新画面では新規登録時と同じ入力フォームが表示され, データの変更ができる. 次に確認画面で確認を行い更新完了となる. 
-そして退会画面では本当に退会してもいいかの削除確認画面が表示され, よければ削除完了となりログアウトされ, ログイン画面に戻る. 
+新規登録画面では投稿の際に表示されるユーザネーム, 一意の識別のために使用されるメールアドレス, パスワードの設定を要求される. これらも条件を満たしていないとエラー表示がされ, 満たしている場合は確認画面でチェックを促したのちに登録完了となり, ユーザデータがデータベースに挿入される. ログイン後は設定したユーザネームが投稿フォームに表示される. マイ備忘録ではログインしたユーザの自分の投稿を見ることができる. そして登録情報変更では新規登録画面と同じフォームで登録した情報を変更することができる. 
 
-次は管理者ページでの状態遷移図は図3のようになっている. まず, 管理者用のユーザ名とパスワードを入力すると管理トップ画面に行くことができる. 管理トップ画面からは会員一覧の表示に飛ぶことができ, そこでは会員の新規登録, 更新, 削除を行うことができる. 
+備忘録の投稿においては未ログインであれば名無し, 既ログインであれば登録時のユーザネームを使って投稿されるのでログインしていてもいなくても投稿することができる. しかし未ログインの場合はプライベート投稿であるかのチェック工モックは無くなっている. 
 
-新規登録を行う際はまず登録情報の入力, そして確認画面にて確認をすることで登録を完了することができる. 更新画面でも同様に登録情報の変更を行い, 確認をして更新が完了される. 削除画面では本当に削除していいかの表示の確認の後, 会員の削除を行うことできる. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.17]{systemScreen.eps}
+\caption{状態遷移図}
+ \label{システム}
+\end{figure}
 
 \subsection{データベース設計}
-本システムで使用されているデータベースでは次の5つのテーブルが使われている. 
+本システムで使用されているデータベースでは次の2つのテーブルが使われている. 
 \begin{quote}
  \begin{itemize}
-  \item 会員情報テーブル
-  \item 県名テーブル
-  \item 仮登録テーブル
-  \item 管理者情報テーブル
-  \item お知らせテーブル
+  \item ユーザ情報テーブル
+  \item 備忘録テーブル
  \end{itemize}
 \end{quote}
-会員情報テーブルでは本登録された会員情報を保持し, 県名テーブルでは会員情報入力に必要な都道府県名を保持している.
-仮登録テーブルでは仮登録の際にメールを送信したアカウント情報が保持されている. 
-このテーブルでは本登録が完了すれば該当データは自動的に削除されるようになっている. そして管理者情報テーブルでは会員ではない管理者の情報を保持するのに使用されている. 管理者ページにログインする際はこちらのテーブルから参照される.
-最後にお知らせテーブルはお知らせの文章を保持するために使われている.  
 
-会員情報テーブルのテーブル構成は表１のようになっている. 一意の数値を挿入するためのidフィールドがまず最初にあることが分かる. 
-このフィールドは3バイトの整数型を取扱い, 数値が無であることは許されておらず, さらに自動繰上げ機能が付いている. これによってデータが挿入されると自動的にidの値を繰り上げることが可能となっている. 
-次に続くusernameフィールドからfirst\_nameフィールドに関してはユーザネーム, パスワード, 名字, 名前を示しており, 括弧内の文字数分を確保した文字列を格納している. birthdayフィールドは誕生日を示し, 8桁の文字型で格納されている. kenフィールドでは2バイトの整数型を取り扱い, 県名テーブルと連携して都道府県のそれぞれのidが入ることになっている. 
-reg\_dateフィールドでは日付型を扱っており, 登録日時を格納している. 
+まずユーザ情報テーブルの構成は表1のようになっている. 個々の識別用のemailカラム, ユーザネームを格納するuser\_nameカラム, パスワードを格納するpasswordカラムがこのテーブルでは使用されている. 
+またメールアドレスとパスワードはともに128文字, ユーザネームは50文字の領域が割り当てられている. どちらも指定文字数を超えるとエラーが出るようになっているので格納時の例外は出ることはない. 
+
 \begin{table}[htb]
 \centering
-  \caption{会員情報テーブル構成}
+  \caption{ユーザ情報テーブル構成}
   \scalebox{0.7}{
   \begin{tabular}{|l|c|r|c|c|c|}  \hline
     	Field & Type & Null & Key & Default & Extra \\ \hline \hline
-   	 id & mediumint unsigned & NO & PRIMARY & NULL & auto\_increment \\ \hline
-	 username & varchar(50) & YES &  & NULL & \\ \hline
-	 password & varchar(128) & YES & & NULL & \\ \hline
-	 last\_name & varchar(50) & YES & & NULL & \\ \hline
-	 first\_name & varchar(50) & YES & & NULL & \\ \hline
-	 birthday & char(8) & YES &  & NULL & \\ \hline
-	 ken & smallint & YES &  & NULL & \\ \hline
-	 reg\_date & datetime & YES & & NULL & \\ \hline
-	 cancel & datetime & YES & & NULL & \\ \hline
+   	 id & int(10) unsigned & NO & PRIMARY & NULL & auto\_increment \\ \hline
+	 email & varchar(128) & NO & UNIQUE & NULL & \\ \hline
+	 user\_name & varchar(50) & NO & & NULL & \\ \hline
+	 password & varchar(128) & NO & & NULL & \\ \hline
    	\end{tabular}
    }
 \end{table}
 
-次に県名テーブルである. 県名テーブルの構成は表2の通りである. 同じく一意の数値が格納されるidフィールドがあるが, 今回は47都道府県分の番号を入れるのみなのでsmallint型を使用して2バイトの数値を扱うようにしている. 
-また, kenフィールドでは10文字の都道部県名が格納されるようになっている. 
+次に備忘録テーブルである. 備忘録テーブルの構成は表2のようになっている. 投稿時の西暦から秒数までの時間を格納するcreated\_atカラム, タイトルを格納するsubjectカラム, 本文を格納するtextカラム, 誰が投稿したかのユーザidを格納するuser\_idカラム, プライベート投稿であるかの真偽が格納されているis\_privateカラムがこのテーブルで使用されている. 
+また, subjectカラムは100文字, textカラムは500文字の領域が割り当てられている. 本文であるtextカラムは400文字までという制限が設けられているが, 念のため余分に領域を割り当てている. 
+is\_privateカラムでは1bitのtinyint型が付けられているのでこの値が1か0かでプライベート投稿であるかをチェックしている. 
+
+今回はLaravelを使用しているのでテーブル同士の関連づけが簡単にできるようになっている. よってuser\_idに格納されたidのユーザを参照してこの備忘録が誰によって投稿されたものなのかを表示している. この機能はマイページでの表示にも使われている. 
 
 \begin{table}[htb]
 \centering
-  \caption{県名テーブル構成}
+  \caption{備忘録テーブル構成}
   \scalebox{0.7}{
   \begin{tabular}{|l|c|r|c|c|c|}  \hline
     	Field & Type & Null & Key & Default & Extra \\ \hline \hline
-   	 id & smallint & NO & PRIMARY & NULL &  \\ \hline
-	 ken & varchar(10) & YES & & & \\ \hline
+   	 id & int(10) unsigned & NO & PRIMARY & NULL &  auto\_increment \\ \hline
+	 created\_at & timestamp& NO & & current\_timestamps() & \\ \hline
+	 subject & varchar(100) & NO & & NULL &  \\ \hline
+	 text & varchar(500) & NO & & NULL &  \\ \hline
+	 user\_id & int(11) & YES & & NULL &  \\ \hline
+	 is\_private & tinyint(1) & NO & & NULL &  \\ \hline
+
    	\end{tabular}
    }
 \end{table}
-
-次は仮登録テーブルである. 仮登録テーブルの構成は表3に示す通りである. このテーブルの構成はほとんど会員情報テーブルとほぼ同じだが, 仮登録完了メールに書かれたリンクに飛ぶ際に使用されるパスワードを格納するlink\_passフィールドが追加されている. このパスワードを使用して本登録が完了したかなどの判別を行なっている. 
-
-\begin{table}[htb]
-\centering
-  \caption{仮登録テーブル構成}
-  \scalebox{0.7}{
-  \begin{tabular}{|l|c|r|c|c|c|}  \hline
-    	Field & Type & Null & Key & Default & Extra \\ \hline \hline
-   	 id & mediumint unsigned & NO & PRIMARY & NULL & auto\_increment \\ \hline
-	 username & varchar(50) & YES &  & NULL & \\ \hline
-	 password & varchar(128) & YES & & NULL & \\ \hline
-	 last\_name & varchar(50) & YES & & NULL & \\ \hline
-	 first\_name & varchar(50) & YES & & NULL & \\ \hline
-	 birthday & char(8) & YES &  & NULL & \\ \hline
-	 ken & smallint & YES &  & NULL & \\ \hline
-	 link\_pass & varchar(128) & YES &  & NULL & \\ \hline
-	 reg\_date & datetime & YES & & NULL & \\ \hline
-   	\end{tabular}
-   }
-\end{table}
-
-最後にお知らせテーブルである. お知らせテーブルの構成は表4に示すものである. 今までと同じように一意なidを最初にフィールドとして定義している. 次にお知らせの件名であるsubjectフィールドを256文字までという制限とともに定義している. 
-また本文であるbodyフィールドにはtext型を宣言しているので自由な文字列が入力と可能となっており, 最後にはお知らせがされた時間を挿入するreg\_dateが定義されている. 
-
-\begin{table}[htb]
-\centering
-  \caption{お知らせテーブル構成}
-  \scalebox{0.7}{
-  \begin{tabular}{|l|c|r|c|c|c|}  \hline
-    	Field & Type & Null & Key & Default & Extra \\ \hline \hline
-   	 id & mediumint unsigned & NO & PRIMARY & NULL & auto\_increment \\ \hline
-	 subject & varchar(256) & YES &  & NULL & \\ \hline
-	 body & text & YES & & NULL & \\ \hline
-	 reg\_date & datetime & YES & & NULL & \\ \hline
-   	\end{tabular}
-   }
-\end{table}
-
 
 \subsection{システム詳細}
-会員ページのメインファイルとなるindex.phpではまず, 初期化ファイルのinit.phpを呼び出し, データベースのユーザ設定やライブラリなどの初期設定を行なっている. 
-次にMemberController.phpという会員情報を取り扱うコントローラクラスを実体化して, 更にAuthクラスの機能を使用してログインされている状態かを判別することで表示するページを変えている. MemberControllerで使われるページ遷移の状態には次のような6つの種類がある. ちなみにこれらのステートメントはURLの末尾につけられるので状態の判別ができるようになっている. 
+前述の通り, 今回はLaravelを使用しているのでMVC方式でファイルを分けて構成されている. このシステムで主に働いているファイルは以下の通りである. 
+
 \begin{quote}
  \begin{itemize}
-  \item ログイン時
+  \item コントローラ
    \begin{itemize}
-    \item デフォルト状態 : 会員トップページ
-    \item "logout" : ログアウトされたとき
-    \item "modify" : 登録情報が変更されたとき
-    \item "delete" : 退会するとき
+   \item SimpleNoteController.php
+   \item UserController.php
+   \item NoteController.php
    \end{itemize}
- \item 未ログイン時
+  \item モデル
    \begin{itemize}
-    \item デフォルト状態 : ログインページ
-    \item "regist" : 新規登録するとき
-    \item "authenticate" : 登録データが条件に合っているか判別するとき
+    \item User.php
+    \item Notebook.php
+   \end{itemize}
+  \item ビュー
+   \begin{itemize}
+    \item index.blade.php
+    \item login.blade.php
+    \item register.blade.php
+    \item registerConfirm.blade.php
+    \item registerComplete.blade.php
+    \item editUser.blade.php
+    \item editConfirm.blade.php
+    \item editComplete.blade.php
+    \item mypage.blade.php
+    \item uploadConfirm.blade.php
+    \item template.blade.php
+   \end{itemize}
+   \item リクエストクラス
+   \begin{itemize}
+    \item EditRequest.php
+    \item RegisterRequest.php
+    \item UploadRequest.php
    \end{itemize}
  \end{itemize}
 \end{quote}
 
+SimpleNoteControllerクラスでは特に深くデータベースとの連携がない処理を行っているのでindexメソッドやloginメソッド, registerメソッドではそのままトップページや登録画面を表示するのみとなっている. また, regist\_confirmメソッドでは新規登録の確認画面の際にhtmlの方に表示するデータの転送とセッションへの格納により入力したデータを確認として表示させている. 
 
-またこのコントローラはBaseControllerというクラスを継承しており, このクラスではSmartyの実装や会員情報入力時のルールなどについて定義している. このプロジェクトで使用されるコントローラは全てこのベースコントローラを継承している.
+またlogoutメソッドではセッションに格納してあるログインIDとユーザネームを消してリダイレクトすることでログアウト機能を実現している. 
 
-そしてNoticeControllerではお知らせに関するデータを扱っている. まずNoticeModelクラスを使用してお知らせデータベースからデータを持ってくることでお知らせの文章を取り出すことができる. 
-あとはテンプレートファイルで整った表示をすることでお知らせをデータベース上のお知らせ情報を表示させることが可能となっている.  
+UserControllerクラスではユーザ情報をモデルとビュー間でやり取りする処理が行われている. regist\_completeメソッドではユーザ情報をデータベースに格納させる処理を行っている. 前ページからセッションで受け取ったユーザデータにバリデーションを行ったのちにユーザネームとメールアドレス, さらにパスワードをハッシュ化した状態で格納させている. 
+そしてlogin\_checkメソッドではログイン時のデータチェックを行っている. データベース内から入力メールアドレスと登録メールアドレスを比較して一致したものがない, またはメールアドレスは一致していたとしてもパスワードが一致していない場合はその趣旨のエラーをビューに返すようにしている. 
 
-次のPrememberControllerは仮登録メールから本登録を行う際に用いられている. 
-PrememberModelという仮登録データベースを扱うモデルクラスを使用して, リンクに記載されているリンクパスワードの一致とユーザの名前が一致していれば本登録完了の文を表示し, 一致しなかったりリンクにパラメータがなければエラーを表示することで本登録処理を行なっている.  
+editメソッドは登録情報を編集する際に入力フォームに登録データを入力しておくために呼び出され, edit\_confirmメソッドでregist\_confirmメソッドと同じく確認画面のためのデータ転送, セッションへの格納を行っている. そしてedit\_completeメソッドで入力された変更情報を再挿入している. 
 
-最後にSystemControllerである. これは管理者画面で使用されるコントローラである. Authクラスを使用してセッション開始と認証を行い, まだ認証がされていない場合は状態を変えてログインページに飛ぶようになっている. 
-また, MemberController同様, ページ遷移のためのパラメータを扱っており, 次の9つのステートメントがある.
+NoteControllerクラスでは備忘録情報をモデルとビュー間でやり取りする処理が行われている. uploadメソッドではトップページで入力された備忘録情報を受け取り, プライベート投稿であるかのフラグをbooleanに変換した状態でセッションに格納した上で確認画面に飛ばしている. 
+そしてupload\_completeメソッドで実際に入力されたデータをデータベースに格納するという仕組みになっている. ユーザデータの格納と違うところはプライベート投稿であるかのbooleanを判別する部分のみで他はほとんど同じとなっている. そしてmypageメソッドではマイページで表示する備忘録の条件指定を行っている. 現在ログインしているユーザのIDのみで条件を絞り, 降順で表示させることで自分の投稿のみを表示させるようにしている. 
 
-\begin{quote}
- \begin{itemize}
- \item デフォルト状態 : ログインページまたは管理者ページ
- \item "login" : ログインページにいるとき
- \item "logout" : ログアウトされたとき
- \item "modify" : 会員情報を変更するとき
- \item "delete" : 会員情報を削除するとき
- \item "list" : 会員情報を表示しているとき
- \item "regist" : 会員情報を新規で登録するとき
- \item "notice" : お知らせ表示を編集するとき
- \item "authenticate" : 登録データが条件に合っているか判別するとき
- \end{itemize}
-\end{quote}
- 
- これらの状態に応じて表示するテンプレートファイルを切り替えている. 
+Userモデルは自動繰上げであるidカラムの保護, 従テーブルであるnotebooks
 
 \subsection{変数設計}
 本システムで使われる変数の多くは主にBaseControllerで宣言されている. まずtype変数とaction変数はそれぞれ状態遷移のときに使われている. type変数はそれぞれのページにおける"login"や"modify"などの状態の名前を保持する役割を持っている. 
@@ -315,10 +291,7 @@ file変数では使うテンプレートファイル名を格納している. �
 \bibitem{mariaDB} MariaDB Foundation . "MariaDB Server: The open source relational database" . MariaDB Foundation . https://mariadb.org/ . (閲覧日:2022/06/01)
 \bibitem{mariaDB} Mark Smallcombe . "MariaDB vs MySQL: 徹底比較" . integrate.io . (更新日:2020/09/03) . https://www.integrate.io/jp/blog/mariadb-vs-mysql-everything-you-need-to-know-ja/ . (閲覧日:2022/06/01)
 \bibitem{css} MDN contributors . "CSS: カスケーディングスタイルシート" . mdn web docs . (更新日:2021/07/18) . https://developer.mozilla.org/ja/docs/Web/CSS . (閲覧日:2022/06/01)
-\bibitem{smarty} smarty . "Smarty とは?" .smarty . https://www.smarty.net/docsv2/ja/what.is.smarty.tpl . (閲覧日:2022/06/01)
 \bibitem{http} MDN contributors . "HTTP" . mdn web docs . (更新日:2021/09/18) . https://developer.mozilla.org/ja/docs/Web/HTTP . (閲覧日:2022/06/01)
-\bibitem{smtp} SiteGround Hosting Ltd . "Email Protocols - POP3, SMTP and IMAP Tutorial" . SiteGround . https://www.siteground.com/tutorials/email/protocols-pop3-smtp-imap/ . (閲覧日:2022/06/01)
-\bibitem{smtp} SiteGround Hosting Ltd . "What is SMTP?" . SiteGround . https://www.siteground.com/kb/what-is-smtp/. (閲覧日:2022/06/01)
 \end{thebibliography}
 
 
