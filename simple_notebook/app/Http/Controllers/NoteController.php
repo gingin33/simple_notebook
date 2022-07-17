@@ -22,7 +22,9 @@ class NoteController extends Controller
             'texts'=>$request->texts,
             'isPrivate'=>$iP,   
         ];
-        $request->session()->put(['title'=>$request->title, 'texts'=>$request->texts, 'isPrivate'=>$iP]);
+        session()->flash('title', $request->title);
+        session()->flash('texts', $request->texts);
+        session()->flash('isPrivate', $iP);
 
         return view('top.uploadConfirm', $data);
     }

@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.6.1)  16 JUL 2022 23:32
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.6.1)  17 JUL 2022 09:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -4238,87 +4238,87 @@ Overfull \hbox (21.68768pt too wide) in paragraph at lines 188--189
  []
 
 [3] [4]
-LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 281.
+LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 300.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 []\OT1/cmr/m/n/8.8711 PHP Group . "\JY1/mc/m/n/8.8711 一般的な情報\OT1/cmr/m/n/
 8.8711 " . php.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 \OT1/cmr/m/n/8.8711 https://www.php.net/manual/ja/faq.general.php .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 []\OT1/cmr/m/n/8.8711 PHP Group . "Zend API: PHP
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 \JY1/mc/m/n/8.8711 のコアをハ ックする\OT1/cmr/m/n/8.8711 " . php .
  []
 
 
-Overfull \hbox (43.73837pt too wide) in paragraph at lines 283--284
+Overfull \hbox (43.73837pt too wide) in paragraph at lines 302--303
 \OT1/cmr/m/n/8.8711 http://php.adamharvey.name/manual/ja/internals2.ze1.zendapi
 .php
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 \OT1/cmr/m/n/8.8711 https://www.phptutorial.net/php-tutorial/what-is-php/
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 285--286
+Underfull \hbox (badness 5726) in paragraph at lines 304--305
 []\OT1/cmr/m/n/8.8711 KINSTA . "MySQL \JY1/mc/m/n/8.8711 とは ？初心者にわかり
 や
  []
 
 
-Underfull \hbox (badness 6708) in paragraph at lines 285--286
+Underfull \hbox (badness 6708) in paragraph at lines 304--305
 \JY1/mc/m/n/8.8711 すい説明\OT1/cmr/m/n/8.8711 " . KIN-STA . (\JY1/mc/m/n/8.871
 1 更新日\OT1/cmr/m/n/8.8711 :2020/07/03) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 \OT1/cmr/m/n/8.8711 https://kinsta.com/jp/knowledgebase/what-is-mysql/ .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
 []\OT1/cmr/m/n/8.8711 Mark Small-combe . "Mari-aDB vs MySQL: \JY1/mc/m/n/8.8711
  徹
  []
 
 
-Underfull \hbox (badness 7851) in paragraph at lines 287--288
+Underfull \hbox (badness 7851) in paragraph at lines 306--307
 \JY1/mc/m/n/8.8711 底比較\OT1/cmr/m/n/8.8711 " . in-te-grate.io . (\JY1/mc/m/n/
 8.8711 更新日\OT1/cmr/m/n/8.8711 :2020/09/03) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
 \OT1/cmr/m/n/8.8711 https://www.integrate.io/jp/blog/mariadb-vs-mysql-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 []\OT1/cmr/m/n/8.8711 MDN con-trib-u-tors . "HTTP" . mdn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 \OT1/cmr/m/n/8.8711 web docs . (\JY1/mc/m/n/8.8711 更新日\OT1/cmr/m/n/8.8711 :2
 021/09/18) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 \OT1/cmr/m/n/8.8711 https://developer.mozilla.org/ja/docs/Web/HTTP .
  []
 
@@ -4339,6 +4339,6 @@ Here is how much of TeX's memory you used:
  20525 multiletter control sequences out of 15000+600000
  508816 words of font info for 201 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 55i,10n,62p,527b,492s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,10n,62p,546b,492s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on K20089_report2.dvi (5 pages, 40648 bytes).
+Output written on K20089_report2.dvi (5 pages, 40124 bytes).
